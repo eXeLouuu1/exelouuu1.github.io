@@ -1,6 +1,6 @@
+
 // script.js
 
-// Mouse glow efekti
 const glow = document.createElement("div");
 glow.style.position = "fixed";
 glow.style.width = "200px";
