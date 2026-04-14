@@ -1,104 +1,80 @@
-/* Temel Ayarlar */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-}
-
 body {
-    background-color: #0f172a; /* Koyu lacivert/siyah tonu */
-    color: #f1f5f9;
-    line-height: 1.6;
-    scroll-behavior: smooth;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color: white;
+  overflow: hidden;
 }
 
-/* Navigasyon */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 10%;
-    background: rgba(15, 23, 42, 0.9);
-    position: sticky;
-    top: 0;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #38bdf8; /* Açık mavi */
+.card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(15px);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.2);
+  animation: fadeIn 1s ease;
 }
 
-nav ul {
-    display: flex;
-    list-style: none;
+.pfp {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px cyan);
 }
 
-nav ul li {
-    margin-left: 2rem;
+.name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 28px;
+  margin: 10px 0;
+  text-shadow: 0 0 10px cyan;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: #cbd5e1;
-    transition: 0.3s;
+.bio {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 20px;
 }
 
-nav ul li a:hover {
-    color: #38bdf8;
-}
-
-/* Hero Bölümü */
-#hero {
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: radial-gradient(circle, rgba(56,189,248,0.1) 0%, rgba(15,23,42,1) 70%);
-}
-
-.highlight {
-    color: #38bdf8;
-}
-
-h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
+.buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
 }
 
 .btn {
-    display: inline-block;
-    margin-top: 2rem;
-    padding: 0.8rem 2rem;
-    background-color: #38bdf8;
-    color: #0f172a;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: 0.3s;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  border: 1px solid cyan;
+  transition: 0.3s;
+  position: relative;
 }
 
 .btn:hover {
-    background-color: #0ea5e9;
-    transform: translateY(-3px);
+  background: cyan;
+  color: black;
+  box-shadow: 0 0 20px cyan;
+  transform: scale(1.1);
 }
 
-/* Diğer Bölümler */
-section {
-    padding: 5rem 10%;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);} 
+  to { opacity: 1; transform: translateY(0);} 
 }
 
-h2 {
-    border-bottom: 2px solid #38bdf8;
-    display: inline-block;
-    margin-bottom: 2rem;
-}
-
-footer {
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.9rem;
-    color: #64748b;
+@keyframes float {
+  0%,100% { transform: translateY(0);} 
+  50% { transform: translateY(-10px);} 
 }
