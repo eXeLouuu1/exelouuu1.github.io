@@ -1,9 +1,13 @@
+/* style.css */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: radial-gradient(circle at top, #0f172a, #020617);
   color: white;
   overflow: hidden;
+  
+  /* TERRARIA STYLE BACKGROUND */
+  background: url('terraria-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
 .container {
@@ -11,6 +15,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  backdrop-filter: blur(6px);
 }
 
 .card {
@@ -53,13 +58,19 @@ body {
 }
 
 .btn {
-  padding: 10px 20px;
+  padding: 12px 20px;
   border-radius: 10px;
   text-decoration: none;
   color: white;
   border: 1px solid cyan;
   transition: 0.3s;
-  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn i {
+  font-size: 16px;
 }
 
 .btn:hover {
