@@ -14,30 +14,6 @@ body {
   z-index: 0;
 }
 
-.eyes {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.eye {
-  position: absolute;
-  width: 80px;
-  opacity: 0.85;
-  filter: drop-shadow(0 0 8px red);
-  image-rendering: pixelated;
-  animation: moveEye linear infinite;
-}
-
-.eye1 { top: 20%; animation-duration: 14s; }
-.eye2 { top: 55%; animation-duration: 18s; }
-
-@keyframes moveEye {
-  0% { left: -120px; transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-  100% { left: 110%; transform: translateY(0px); }
-}
 
 .container {
   position: relative;
