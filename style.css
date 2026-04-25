@@ -1,0 +1,204 @@
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  overflow: hidden;
+  background: url('terraria-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+#particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+
+.container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  backdrop-filter: blur(2px);
+}
+
+.card {
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(6px);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.25);
+  animation: fadeIn 1s ease;
+}
+
+.pfp {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px cyan);
+}
+
+.name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 28px;
+  text-shadow: 0 0 10px cyan;
+  margin: 10px 0;
+}
+
+.bio {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn {
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  border: 1px solid cyan;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: cyan;
+  color: black;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px cyan;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+/* --- TEMA BUTONU STİLİ --- */
+.theme-switcher-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000; /* Her şeyin üstünde */
+  padding: 10px 18px;
+  background: rgba(40, 0, 0, 0.8);
+  color: #ff4500;
+  border: 2px solid #ff4500;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+  transition: 0.3s;
+}
+
+.theme-switcher-btn:hover {
+  background: #ff4500;
+  color: black;
+  box-shadow: 0 0 20px #ff4500;
+}
+
+/* --- DRAGON THEME AKTİF OLUNCA --- */
+
+/* Varsayılan olarak ejderha elemanlarını gizle */
+#dragon-eye, #lava-container {
+  display: none;
+  position: fixed;
+  inset: 0;
+  pointer-events: none; /* Fareyi engellemesinler */
+}
+
+/* Ejderha Teması Aktifken */
+body.dragon-theme {
+  background: #1a0500; /* Çok koyu kırmızı/kahve arkaplan */
+}
+
+body.dragon-theme .container {
+  backdrop-filter: blur(4px) saturate(0.5); /* Daha karanlık bir atmosfer */
+}
+
+body.dragon-theme #particles {
+  display: none; /* Terraria partiküllerini kapat */
+}
+
+body.dragon-theme #dragon-eye,
+body.dragon-theme #lava-container {
+  display: block; /* Ejderha efektlerini aç */
+  z-index: 1; /* Kartın altında kalacaklar */
+}
+
+/* Kart Stili Değişimi */
+body.dragon-theme .card {
+  background: rgba(30, 5, 5, 0.9);
+  border: 2px solid #8b0000;
+  box-shadow: 0 0 50px rgba(255, 0, 0, 0.4);
+}
+
+body.dragon-theme .pfp {
+  filter: drop-shadow(0 0 20px #ff0000);
+}
+
+body.dragon-theme .name {
+  color: #ffcc00; /* Altın rengi */
+  text-shadow: 0 0 15px #ff4500;
+}
+
+body.dragon-theme .btn {
+  border: 1px solid #ff4500;
+  color: #ffcc00;
+}
+
+body.dragon-theme .btn:hover {
+  background: #8b0000;
+  box-shadow: 0 0 15px #ff0000;
+  color: white;
+}
+
+/* --- LAV ANİMASYONU --- */
+#lava-container {
+  overflow: hidden;
+}
+
+.lava-stream {
+  position: absolute;
+  top: -100px;
+  width: 15px;
+  height: 120vh;
+  background: linear-gradient(to bottom, transparent, #ff4500, #ffcc00, #8b0000, transparent);
+  border-radius: 10px;
+  opacity: 0.8;
+  filter: blur(2px);
+  animation: lavaFlow linear infinite;
+}
+
+@keyframes lavaFlow {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+/* Mevcut CSS'inin sonuna ekle */
+.mouse-glow {
+    position: fixed;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(0,255,255,0.25) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
